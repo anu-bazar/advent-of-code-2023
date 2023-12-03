@@ -7,27 +7,21 @@ Lines = file1.readlines()
 #create empty list
 elf_numbers=[]
 for line in Lines:
-    numbers = re.findall(r'\d+', line) #'/d' - digit from 0 to 9 AND '+' - one or more occurences 
-    for number in numbers:
-        elf_numbers.append(int(number))
-#print(elf_numbers)
+    numbers = re.findall(r'\d+', line)
+    elf_numbers.append(numbers)
+#print(len(elf_numbers))
 
+final_numbers = []
+for number1 in elf_numbers:
+    first_number = (number1[0])[0]
+    last_number = (number1[-1])[-1]
+    variable=first_number+last_number
+    final_numbers.append(variable)
+#print((final_numbers))
 
-
-
-
-
-"""if its a letter, then do not extract
-if its a number then do extract and store it into a new line
-	if the number is higher than 2
-	take the 1st number and last number
-	if the number is 2
-	take the 1st number and last number
-	if the number is one
-	the number should be doubled """
-
-
-		
-
+final_sum=[int(x) for x in final_numbers]
+print(sum(final_sum))
+	
 #close your reader
 file1.close()
+#answer 55971
